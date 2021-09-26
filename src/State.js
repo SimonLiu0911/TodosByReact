@@ -13,7 +13,8 @@ class State extends PureComponent {
                 {
                 doneData.length<1?"":
                 <span className="todo-clear">
-                    <a href="/#" onClick={()=>{
+                    <a href="/#" onClick={(e)=>{
+                        e.preventDefault();
                         removeDone();
                     }}>
                         <span className="word-done">{doneData.length}</span> Completed
