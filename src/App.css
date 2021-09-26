@@ -134,6 +134,10 @@ body {
   float: left;
 }
 
+#todo-list .todo-content {
+  overflow-x: scroll;
+}
+
 #todo-list .done .todo-content {
   text-decoration: line-through;
   color: #777777;

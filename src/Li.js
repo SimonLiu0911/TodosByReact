@@ -62,10 +62,10 @@ class Li extends PureComponent {
                                 })
                             }}
                             onBlur={()=>{
-                                // this.setState({
-                                //     edit: false
-                                // })
-                                this.state.edit=false;
+                                this.setState({
+                                    edit: false
+                                })
+                                // this.state.edit=false;
                                 if (val.trim()) {
                                     editText(id, val)
                                 } else {

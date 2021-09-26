@@ -4,7 +4,7 @@ class Title extends PureComponent {
     render() {
         return (
             <div className="title">
-                <h1>todos</h1>
+                <h1>Todos</h1>
             </div>
         );
     }
