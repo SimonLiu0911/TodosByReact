@@ -3,7 +3,8 @@ import React, {useState, useRef, useEffect} from 'react';
 function Li(props) {
     const [ edit, setEdit ] = useState(false);
     const elEdit = useRef(null);
-    let { item, checkData, editText, remove, setData } = props;
+    console.log(elEdit.current);
+    let { item, checkData, editText, remove } = props;
     useEffect(() => {
         if(edit) {
             elEdit.current.select();  // 讓切換到編輯時可以直接focus在input上
@@ -20,7 +21,6 @@ function Li(props) {
                     <input
                         className="check"
                         type="checkbox"
-                        checked={ item.done }
                         onChange={(e)=>{
                             checkData(item.id, e.target.checked);
                         }}
@@ -43,12 +43,12 @@ function Li(props) {
                         ref={elEdit}
                         className="todo-input"
                         type="text"
-                        value={item.val}
+                        // val={elEdit.current}
                         onChange={(e)=>{
-                            console.log(e.target.value);
-                            setData();
+                            console.log('change', e.target);
+                            editText(item.id, e.target.value);
                         }}
-                        onBlur={()=>{
+                        onBlur={(e)=>{
                             setEdit(false);
                             if (item.val.trim()) {
                                 editText(item.id, item.val)

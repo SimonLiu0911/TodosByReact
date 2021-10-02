@@ -19,17 +19,18 @@ function App() {
     function checkData(id, done) {
         data.forEach(item => {
             if (id === item.id) {
-                // item.done = !done;
+                item.done = done;
             }
         })
+        setData(data);
     }
     function editText(id, txt) {
-        console.log(editText);
         data.forEach((item) => {
             if(item.id === id){
-                item.txt = txt
+                item.val = txt
             }
         });
+        setData(data);
     }
     function remove(id) {
         data = data.filter((item) => {
