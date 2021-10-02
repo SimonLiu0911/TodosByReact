@@ -1,27 +1,26 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import Li from './Li'
 
-class Todos extends PureComponent {
-    render() {
-        let {data, changeData, editText, remove} = this.props;
-        return (
-            <ul id="todo-list">
-                {
-                    data.map((item) => {
-                        return (
-                            <Li
-                                item={item}
-                                key={item.id}
-                                changeData={changeData}
-                                editText={editText}
-                                remove={remove}
-                            />
-                        );
-                    })
-                }
-            </ul>
-        );
-    }
+function Todos(props) {
+    let { data, checkData, editText, remove, setData } = props;
+    return (
+        <ul id="todo-list">
+            {
+                data.map((item) => {
+                    return (
+                        <Li
+                            key={item.id}
+                            item={item}
+                            checkData={checkData}
+                            editText={editText}
+                            remove={remove}
+                            setData={setData}
+                        />
+                    );
+                })
+            }
+        </ul>
+    )
 }
 
 export default Todos;
