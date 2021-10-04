@@ -1,26 +1,24 @@
 import React from 'react';
 import Li from './Li'
+import {connect} from 'react-redux';
 
 function Todos(props) {
-    let { data, checkData, editText, remove, setData } = props;
+    const {state, dispatch} = props;
     return (
         <ul id="todo-list">
             {
-                data.map((item) => {
-                    return (
-                        <Li
-                            key={item.id}
-                            item={item}
-                            checkData={checkData}
-                            editText={editText}
-                            remove={remove}
-                            setData={setData}
-                        />
-                    );
-                })
+                state.map((item, index) => 
+                    <Li
+                        data={item}
+                        key={index}
+                        dispatch={dispatch}
+                    />
+                )
             }
         </ul>
     )
 }
 
-export default Todos;
+export default connect((state) => {
+    return {state}
+})(Todos);
