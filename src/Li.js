@@ -39,7 +39,10 @@ function Li(props) {
                     <span 
 						className="todo-destroy"
                         onClick={() => {
-                            console.log('trigger delete');
+                            dispatch({
+                                type: 'REMOVE',
+                                id
+                            })
                         }}
 					></span>
                 </div>
@@ -50,7 +53,6 @@ function Li(props) {
                         value={inputVal}
                         ref={elEdit}
                         onChange={(e) => {
-                            console.log('trigger change');
                             setInputVal(e.target.value);
                         }}
                         onBlur={() => {

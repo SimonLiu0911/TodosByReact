@@ -30,8 +30,7 @@ function reducer(state=[
             })
             return [...state];
         case 'REMOVE':
-            console.log('REMOVE');
-            return [...state];
+            return state.filter((item, index) => item.id !== action.id);
         case 'REMOVE_DONE':
             return state.filter((item, index) => !item.done);
     }

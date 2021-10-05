@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {connect} from "react-redux";
 
 function Create(props) {
-    // const [val, setVal] = useState('');
+    const [val, setVal] = useState('');
     let {dispatch} = props;
 
     return (
@@ -12,11 +12,11 @@ function Create(props) {
                 placeholder="What needs to be done?" 
                 autoComplete="off"
                 type="text"
-                defaultValue=""
-                // value={val}
-                // onChange={({target}) => {
-                //     setVal(target.value);
-                // }}
+                // defaultValue=""
+                value={val}
+                onChange={({target}) => {
+                    setVal(target.value);
+                }}
                 onKeyDown={({target, keyCode}) => {
                     if(keyCode === 13) {
                         dispatch({
